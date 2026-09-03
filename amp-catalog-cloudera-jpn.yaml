@@ -1,0 +1,50 @@
+# Cloudera AI AMP カタログ（日本向け）
+# 仕様: https://docs.cloudera.com/machine-learning/cloud/manage-amp/topics/ml-amp-catalog-spec.html
+#
+# 新しい AMP を追加する場合は entries に以下の形式で追記してください:
+#   - title: <カタログに表示するタイトル>
+#     label: <一意のラベル（英数字・ハイフン）>
+#     short_description: |
+#       <タイルに表示する短い説明>
+#     long_description: |
+#       <詳細説明（タイルクリック時に表示）>
+#     image_path: >-
+#       <タイル画像の URL（raw 形式推奨）>
+#     tags:
+#       - <タグ1>
+#       - <タグ2>
+#     git_url: "https://github.com/<owner>/<repo>"
+#     git_ref: <任意: ブランチ名 / タグ / コミットハッシュ>
+#     is_prototype: true
+#     is_new: true
+
+name: Cloudera JPN
+
+entries:
+  - title: Neo4j Launcher
+    label: neo4j-launcher
+    short_description: |
+      Kubernetes 上で Neo4j を起動し、外部からアクセスできるようにする AMP です。
+    long_description: |
+      Neo4j 2026.x を Kubernetes Deployment として起動し、APOC / Graph Data Science プラグインを有効化します。
+      LoadBalancer / NodePort / ClusterIP で外部公開し、起動後はヘルスチェックと自動再起動を行います。
+
+      主な機能:
+      - Neo4j 2026.07.1 を Kubernetes 上にデプロイ
+      - APOC / Graph Data Science プラグインの自動有効化
+      - Bolt（7687）と Browser（7474）の外部公開
+      - 30 秒間隔のヘルスチェックと自動再起動
+      - 親 Pod の PVC を共有したデータ永続化
+      ---------------------------
+      IMPORTANT: Please read the following before proceeding. This AMP includes or otherwise depends on certain third party software packages. Information about such third party software packages are made available in the notice file associated with this AMP. By configuring and launching this AMP, you will cause such third party software packages to be downloaded and installed into your environment, in some instances, from third parties' websites. For each third party software package, please see the notice file and the applicable websites for more information, including the applicable license terms. If you do not wish to download and install the third party software packages, do not configure, launch or otherwise use this AMP. By configuring, launching or otherwise using the AMP, you acknowledge the foregoing statement and agree that Cloudera is not responsible or liable in any way for the third party software packages.
+    image_path: >-
+      https://github.com/neo4j.png
+    tags:
+      - Neo4j
+      - GraphDB
+      - Kubernetes
+      - APOC
+      - GDS
+    git_url: "https://github.com/eyo-shi/neo4j-launcher"
+    is_prototype: true
+    is_new: true
