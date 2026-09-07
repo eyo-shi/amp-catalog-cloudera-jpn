@@ -24,17 +24,17 @@ entries:
   - title: Neo4j Launcher
     label: neo4j-launcher
     short_description: |
-      Kubernetes 上で Neo4j を起動し、外部からアクセスできるようにする AMP です。
+      An AMP that deploys Neo4j on Kubernetes and exposes it externally via the CML Application URL.
     long_description: |
-      Neo4j 2026.x を Kubernetes Deployment として起動し、APOC / Graph Data Science プラグインを有効化します。
-      LoadBalancer / NodePort / ClusterIP で外部公開し、起動後はヘルスチェックと自動再起動を行います。
+      Deploys Neo4j 2026.x as a Kubernetes Deployment and optionally enables APOC / Graph Data Science plugins.
+      Exposes Bolt and HTTP externally via LoadBalancer, NodePort, or ClusterIP, with health checks and automatic restarts after startup.
 
-      主な機能:
-      - Neo4j 2026.07.1 を Kubernetes 上にデプロイ
-      - APOC / Graph Data Science プラグインの自動有効化
-      - Bolt（7687）と Browser（7474）の外部公開
-      - 30 秒間隔のヘルスチェックと自動再起動
-      - 親 Pod の PVC を共有したデータ永続化
+      Key features:
+      - Deploy Neo4j 2026.07.1 on Kubernetes
+      - Optional automatic enablement of APOC / Graph Data Science plugins
+      - External access to Bolt (7687) and Browser (7474)
+      - Health checks every 30 seconds with automatic restart
+      - Data persistence via shared PVC from the parent Pod (optional)
       ---------------------------
       IMPORTANT: Please read the following before proceeding. This AMP includes or otherwise depends on certain third party software packages. Information about such third party software packages are made available in the notice file associated with this AMP. By configuring and launching this AMP, you will cause such third party software packages to be downloaded and installed into your environment, in some instances, from third parties' websites. For each third party software package, please see the notice file and the applicable websites for more information, including the applicable license terms. If you do not wish to download and install the third party software packages, do not configure, launch or otherwise use this AMP. By configuring, launching or otherwise using the AMP, you acknowledge the foregoing statement and agree that Cloudera is not responsible or liable in any way for the third party software packages.
     image_path: >-
@@ -46,5 +46,35 @@ entries:
       - APOC
       - GDS
     git_url: "https://github.com/eyo-shi/neo4j-launcher"
+    is_prototype: true
+    is_new: true
+
+  - title: Java Code Analysis
+    label: java-code-analysis
+    short_description: |
+      An AMP that analyzes any Java repository and ingests a cross-cutting business graph into Neo4j.
+    long_description: |
+      Clones Java source code from any Git repository and ingests a graph linking business capabilities, screens,
+      Java classes, SQL, and DB schemas into Neo4j. Set `GIT_REPO_URL` at deploy time or in Configuration to
+      choose the analysis target, and reuse the same AMP for different repositories.
+
+      Key features:
+      - Clone and analyze Java code from any Git repository
+      - Automatically extract business, screen, form, SQL, and table nodes from Spring MVC + MyBatis projects
+      - Generate nodes and relationships such as Business, Screen, JavaClass, SQL, Table, and Column
+      - Output to any Neo4j instance reachable via Bolt URI (neo4j-launcher, local Neo4j, Neo4j Aura, etc.)
+      - Switch analysis targets by updating `GIT_REPO_URL`
+      ---------------------------
+      IMPORTANT: Please read the following before proceeding. This AMP includes or otherwise depends on certain third party software packages. Information about such third party software packages are made available in the notice file associated with this AMP. By configuring and launching this AMP, you will cause such third party software packages to be downloaded and installed into your environment, in some instances, from third parties' websites. For each third party software package, please see the notice file and the applicable websites for more information, including the applicable license terms. If you do not wish to download and install the third party software packages, do not configure, launch or otherwise use this AMP. By configuring, launching or otherwise using the AMP, you acknowledge the foregoing statement and agree that Cloudera is not responsible or liable in any way for the third party software packages.
+    image_path: >-
+      https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg
+    tags:
+      - Java
+      - Neo4j
+      - Code Analysis
+      - MyBatis
+      - Spring MVC
+      - GraphDB
+    git_url: "https://github.com/eyo-shi/java-code-analysis"
     is_prototype: true
     is_new: true
