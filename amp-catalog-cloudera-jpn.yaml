@@ -78,3 +78,36 @@ entries:
     git_url: "https://github.com/eyo-shi/java-code-analysis"
     is_prototype: true
     is_new: true
+
+  - title: Java Code Analysis with Neo4j (Integrated)
+    label: java-code-analysis-integrated
+    short_description: |
+      An integrated AMP that launches Neo4j on Kubernetes and ingests a Java business graph in a single CML Project.
+    long_description: |
+      Combines the Neo4j Launcher and Java Code Analysis AMPs into a single AMP so that Neo4j and the analysis
+      pipeline run in the same CML Project (same Kubernetes namespace). This avoids the cross-namespace
+      NetworkPolicy and egress allowlist restrictions that prevent the standalone analysis AMP from reaching
+      Neo4j's Internal or External Bolt endpoints in restricted environments such as Cloudera Sandbox.
+
+      Key features:
+      - Launch Neo4j 2026.07.1 as a CML Application in the same Project namespace as the analysis job
+      - Clone and analyze Java code from any Git repository (defaults to a Spring MVC + MyBatis sample)
+      - Extract business, screen, form, SQL, and table nodes; ingest into the co-located Neo4j via Internal Bolt
+      - No cross-Project networking required — works on Cloudera Sandbox and other restricted environments
+      - Reuse for different repositories by updating GIT_REPO_URL / GIT_REF in Project Settings
+      ---------------------------
+      IMPORTANT: Please read the following before proceeding. This AMP includes or otherwise depends on certain third party software packages. Information about such third party software packages are made available in the notice file associated with this AMP. By configuring and launching this AMP, you will cause such third party software packages to be downloaded and installed into your environment, in some instances, from third parties' websites. For each third party software package, please see the notice file and the applicable websites for more information, including the applicable license terms. If you do not wish to download and install the third party software packages, do not configure, launch or otherwise use this AMP. By configuring, launching or otherwise using the AMP, you acknowledge the foregoing statement and agree that Cloudera is not responsible or liable in any way for the third party software packages.
+    image_path: >-
+      https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg
+    tags:
+      - Java
+      - Neo4j
+      - Code Analysis
+      - MyBatis
+      - Spring MVC
+      - GraphDB
+      - Kubernetes
+      - Integrated
+    git_url: "https://github.com/eyo-shi/java-code-analysis-integrated"
+    is_prototype: true
+    is_new: true
