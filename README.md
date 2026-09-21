@@ -4,9 +4,10 @@ Cloudera AI の AMP カタログに、日本向けのカスタム AMP をタイ�
 
 ## ファイル
 
-| ファイル | 説明 |
+| ファイル / ディレクトリ | 説明 |
 |---|---|
 | `amp-catalog-cloudera-jpn.yaml` | AMP カタログ定義ファイル |
+| `images/` | AMP タイル用画像（`image_path` から raw URL で参照） |
 
 ## AMP の追加方法
 
