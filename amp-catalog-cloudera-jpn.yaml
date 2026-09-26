@@ -146,3 +146,42 @@ entries:
     git_url: "https://github.com/eyo-shi/cloudera-merlin"
     is_prototype: true
     is_new: true
+
+  - title: Gandalf
+    label: gandalf
+    short_description: |
+      An AMP that runs a natural-language data-analytics multi-agent with Neo4j graph ingestion (S3 → Iceberg → Neo4j / summary / CDV dashboard).
+    long_description: |
+      Cloudera AI Agent Studio 上で動作する自然言語データ分析マルチエージェント。ユーザーが日本語 / 英語で
+      問い合わせるだけで、S3 → Iceberg 取り込み、Neo4j グラフDBへのノード・リレーション追加、
+      テーブルサマリー生成、Cloudera Data Visualization ダッシュボード作成を一気通貫に実行します。
+      3 ペイン Web UI (React + Vite) と FastAPI バックエンドを Cloudera AI Workbench Application として配信します。
+
+      Key features:
+      - Router / Ingestion / Analytics の 3 Crew を Crew.ai で構成 (Cloudera AI Inference の LLM を LiteLLM 経由で接続)
+      - S3 上の Excel / CSV / JSON / Parquet を自動フォーマット判定 → Iceberg テーブルとして登録
+      - 取り込み時に Neo4j へ Dataset / Column / SourceFile ノードとリレーションを自動投入
+      - 同一 CML Project 内の Neo4j Launcher Application でグラフDBを起動 (java-code-analysis-integrated 方式)
+      - Trino + Iceberg (Cloudera Data Warehouse) と Cloudera Data Visualization を自然言語で操作
+      - セマンティックレイヤに Apache Ossie の YAML を採用、`semantic/` 配下で Git 管理
+      - Knox JWT / IDBroker によるエンドユーザー権限パススルー (サービスアカウント特権を持たない)
+      - 3 ペイン UI: カタログ / S3 エクスプローラ、テーブル・ダッシュボード・サマリー・SQL・ファイルの結果タブ、SSE ストリーム対応チャット
+      ---------------------------
+      IMPORTANT: Please read the following before proceeding. This AMP includes or otherwise depends on certain third party software packages. Information about such third party software packages are made available in the notice file associated with this AMP. By configuring and launching this AMP, you will cause such third party software packages to be downloaded and installed into your environment, in some instances, from third parties' websites. For each third party software package, please see the notice file and the applicable websites for more information, including the applicable license terms. If you do not wish to download and install the third party software packages, do not configure, launch or otherwise use this AMP. By configuring, launching or otherwise using the AMP, you acknowledge the foregoing statement and agree that Cloudera is not responsible or liable in any way for the third party software packages.
+    image_path: >-
+      https://raw.githubusercontent.com/eyo-shi/amp-catalog-cloudera-jpn/main/images/gandalf.svg
+    tags:
+      - LLM
+      - Multi-Agent
+      - CrewAI
+      - Iceberg
+      - Trino
+      - Neo4j
+      - GraphDB
+      - Cloudera Data Visualization
+      - Apache Ossie
+      - FastAPI
+      - React
+    git_url: "https://github.com/eyo-shi/cloudera-gandalf"
+    is_prototype: true
+    is_new: true
